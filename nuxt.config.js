@@ -1,7 +1,6 @@
 // const colors = require('vuetify/es5/util/colors').default
 
-const routerBase =
-  process.env.DEPLOY_ENV === 'GH_PAGES' ? '/nuxt-firebase/' : '/'
+const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? '/chartered/' : '/'
 
 module.exports = {
   mode: 'universal',

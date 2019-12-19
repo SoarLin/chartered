@@ -47,7 +47,7 @@ export default {
   },
   computed: {
     baseRouter () {
-      return process.env.DEPLOY_ENV === 'GH_PAGES' ? '/nuxt-firebase/' : '/'
+      return process.env.DEPLOY_ENV === 'GH_PAGES' ? '/chartered/' : '/'
     }
   },
   methods: {
