@@ -9,7 +9,7 @@ module.exports = {
    */
   head: {
     titleTemplate: '%s - ' + '包車旅遊',
-    title: '包車旅遊' || '',
+    title: '台灣旅遊' || '',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
