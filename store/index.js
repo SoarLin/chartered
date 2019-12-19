@@ -1,10 +1,12 @@
 import { fireDb } from '~/plugins/firebase.js'
 
 export const state = () => ({
+  driver: null,
   recommendTrip: []
 })
 
 export const getters = {
+  driver: state => state.driver,
   recommendTrip: state => state.recommendTrip
 }
 
@@ -26,6 +28,12 @@ export const actions = {
     const snap = await ref.get()
     // console.log(snap.data().timeline)
     commit('SET_RECOMMEND_TRIP', snap.data())
+  },
+  async getDriver ({ commit }, name) {
+    const ref = fireDb.collection('driver').doc(name)
+    const snap = await ref.get()
+    console.log(snap.data())
+    commit('SET_DRIVER', snap.data())
   }
 }
 
@@ -38,5 +46,8 @@ export const mutations = {
       name: trip.name,
       timeline: trip.timeline
     })
+  },
+  SET_DRIVER (state, driver) {
+    state.driver = driver
   }
 }

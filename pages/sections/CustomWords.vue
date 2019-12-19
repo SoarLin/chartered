@@ -47,6 +47,9 @@ export default {
   },
   computed: {
     baseRouter () {
+      if (location.hostname === 'soarlin.github.io') {
+        return '/chartered/'
+      }
       return process.env.DEPLOY_ENV === 'GH_PAGES' ? '/chartered/' : '/'
     }
   },

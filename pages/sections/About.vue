@@ -30,7 +30,7 @@
                   <strong class="text-uppercase"> {{ $t('所在地') }} : </strong>
                 </v-col>
                 <v-col cols="12" sm="8">
-                  {{ $t('台北') }}
+                  {{ driver.location }}
                 </v-col>
               </v-row>
               <v-row>
@@ -38,7 +38,7 @@
                   <strong class="text-uppercase"> {{ $t('車款') }} : </strong>
                 </v-col>
                 <v-col cols="12" sm="8">
-                  BMW 3
+                  {{ driver.car }}
                 </v-col>
               </v-row>
               <v-row>
@@ -46,7 +46,7 @@
                   <strong class="text-uppercase"> {{ $t('乘客數') }} : </strong>
                 </v-col>
                 <v-col cols="12" sm="8">
-                  1 ~ 4
+                  {{ driver.passengers }}
                 </v-col>
               </v-row>
               <v-row>
@@ -54,7 +54,7 @@
                   <strong class="text-uppercase"> {{ $t('保險') }} : </strong>
                 </v-col>
                 <v-col cols="12" sm="8">
-                  XXXXXX
+                  {{ driver.insurance }}
                 </v-col>
               </v-row>
               <v-row>
@@ -62,7 +62,7 @@
                   <strong class="text-uppercase"> {{ $t('語言') }} : </strong>
                 </v-col>
                 <v-col cols="12" sm="8">
-                  {{ $t('中文') }}, {{ $t('英文') }}
+                  {{ driverCanSpeak(driver.language) }}
                 </v-col>
               </v-row>
             </div>
@@ -74,7 +74,36 @@
 </template>
 
 <script>
-export default {}
+export default {
+  props: {
+    driver: {
+      type: Object,
+      default: () => {
+        return {
+          car: 'March',
+          insurance: '好險好險',
+          language: ['中文'],
+          location: '台北',
+          passengers: '1 ~ 4 人'
+        }
+      }
+    }
+  },
+  data () {
+    return {}
+  },
+  computed: {
+  },
+  methods: {
+    driverCanSpeak (langs) {
+      if (Array.isArray(langs)) {
+        return langs.join(', ')
+      } else {
+        return langs
+      }
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped></style>

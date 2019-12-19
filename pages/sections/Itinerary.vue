@@ -25,16 +25,17 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-
 export default {
+  props: {
+    trips: {
+      type: Array,
+      default: () => {
+        return ['台北', '新竹', '台中', '嘉義', '台南', '高雄']
+      }
+    }
+  },
   data () {
     return {}
-  },
-  computed: {
-    ...mapGetters({
-      trips: 'recommendTrip'
-    })
   },
   methods: {
     isTimeRight (idx) {
