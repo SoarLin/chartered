@@ -12,7 +12,7 @@
           >
             <div class="custom-card" :class="customeCardClass(n)">
               <div class="custom__head-block">
-                <img src="/head.jpg" alt />
+                <img :src="getHead('head.jpg')" alt />
                 <h6 class="title">John Doe</h6>
                 <p class="subtitle">香港</p>
               </div>
@@ -46,19 +46,17 @@ export default {
     }
   },
   computed: {
-    baseRouter () {
-      if (location.hostname === 'soarlin.github.io') {
-        return '/chartered/'
-      }
-      return process.env.DEPLOY_ENV === 'GH_PAGES' ? '/chartered/' : '/'
-    }
   },
   methods: {
     customeCardClass (idx) {
       return idx % 2 === 0 ? 'custom-card--reverse' : ''
     },
     getHead (headImg) {
-      return `background-image: url(${this.baseRouter}${headImg})`
+      let baseRouter = '/'
+      if (process.BROWSER_BUILD) {
+        baseRouter = (window.location.hostname === 'soarlin.github.io') ? '/chartered/' : '/'
+      }
+      return `${baseRouter}${headImg}`
     }
   }
 }
