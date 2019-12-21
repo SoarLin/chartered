@@ -82,7 +82,11 @@ export default {
       console.log(this.currentTag)
     },
     combineImgPath (name) {
-      return `/attractions/${name}`
+      let baseRouter = '/chartered/'
+      if (process.client) {
+        baseRouter = (window.location.hostname.includes('localhost')) ? '/' : '/chartered/'
+      }
+      return `${baseRouter}attractions/${name}`
     }
   }
 }

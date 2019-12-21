@@ -52,9 +52,9 @@ export default {
       return idx % 2 === 0 ? 'custom-card--reverse' : ''
     },
     getHead (imgPath) {
-      let baseRouter = '/'
-      if (process.BROWSER_BUILD) {
-        baseRouter = (window.location.hostname === 'soarlin.github.io') ? '/chartered/' : '/'
+      let baseRouter = '/chartered/'
+      if (process.client) {
+        baseRouter = (window.location.hostname.includes('localhost')) ? '/' : '/chartered/'
         console.log('custom image:', `${baseRouter}${imgPath}`)
       }
       return `${baseRouter}${imgPath}`
