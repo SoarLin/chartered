@@ -51,12 +51,13 @@ export default {
     customeCardClass (idx) {
       return idx % 2 === 0 ? 'custom-card--reverse' : ''
     },
-    getHead (headImg) {
+    getHead (imgPath) {
       let baseRouter = '/'
       if (process.BROWSER_BUILD) {
         baseRouter = (window.location.hostname === 'soarlin.github.io') ? '/chartered/' : '/'
+        console.log('custom image:', `${baseRouter}${imgPath}`)
       }
-      return `${baseRouter}${headImg}`
+      return `${baseRouter}${imgPath}`
     }
   }
 }

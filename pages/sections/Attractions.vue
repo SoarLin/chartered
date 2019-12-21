@@ -8,21 +8,27 @@
         <v-col cols="12" sm="10" md="8">
           <v-chip-group column active-class="primary--text" class="city-group">
             <v-chip
-              v-for="(tag, idx) in tags"
+              v-for="(city, idx) in regions"
               :key="idx"
-              @click="chooseTag(tag.value)"
+              @click="chooseTag(city.id)"
             >
-              {{ tag.text }}
+              {{ city.name }}
             </v-chip>
           </v-chip-group>
         </v-col>
       </v-row>
       <v-row>
-        <v-col v-for="i in 10" :key="i" cols="12" lg="3" md="4" sm="6" xs="12">
+        <v-col
+          v-for="(data, idx) in currentAttractions"
+          :key="idx"
+          cols="12" lg="3" md="4" sm="6" xs="12"
+        >
           <v-card class="attraction-card">
-            <v-img class="white--text align-end" src="plane.jpg">
+            <v-img class="white--text align-end"
+              :src="combineImgPath(data.img)"
+            >
               <v-card-title class="attraction-card__title">
-                Attraction Name
+                {{ data.name }}
               </v-card-title>
             </v-img>
           </v-card>
@@ -34,6 +40,16 @@
 
 <script>
 export default {
+  props: {
+    regions: {
+      type: Array,
+      required: true
+    },
+    attractions: {
+      type: Array,
+      required: true
+    }
+  },
   data () {
     return {
       tags: [
@@ -50,10 +66,23 @@ export default {
       currentTag: null
     }
   },
+  computed: {
+    currentAttractions () {
+      if (this.currentTag && this.currentTag !== 'All') {
+        return this.attractions.filter((v) => {
+          return v.city === this.currentTag
+        })
+      }
+      return this.attractions
+    }
+  },
   methods: {
     chooseTag (value) {
       this.currentTag = value
       console.log(this.currentTag)
+    },
+    combineImgPath (name) {
+      return `/attractions/${name}`
     }
   }
 }

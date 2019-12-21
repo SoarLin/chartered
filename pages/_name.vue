@@ -8,7 +8,10 @@
 
       <services />
 
-      <attractions />
+      <attractions
+        :regions="regions"
+        :attractions="attractions"
+      />
 
       <itinerary :trips="trips" />
 
@@ -74,7 +77,9 @@ export default {
     },
     ...mapGetters({
       driver: 'driver',
-      trips: 'recommendTrip'
+      trips: 'recommendTrip',
+      regions: 'regions',
+      attractions: 'attractions'
     })
   },
   async asyncData ({ app, store, params }) {
@@ -83,6 +88,8 @@ export default {
       console.log(name)
       await store.dispatch('getAllTrip')
       await store.dispatch('getDriver', name)
+      await store.dispatch('getRegions')
+      await store.dispatch('getAttractions')
     } catch (e) {
       console.error(e)
     }
