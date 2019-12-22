@@ -6,13 +6,13 @@
           <h2 class="headline">
             {{ $t('提供服務') }}
           </h2>
-          <span class="subheading">優質司機兼導遊，為您提供服務</span>
+          <span class="subheading">優質司機兼地陪，為您提供服務</span>
         </div>
       </v-flex>
       <v-flex xs12>
         <v-container grid-list-xl>
           <v-layout row wrap align-center>
-            <v-flex xs12 md4>
+            <v-flex xs12 sm6 md3>
               <v-card flat class="transparent">
                 <v-card-text class="text-center">
                   <v-icon x-large class="blue--text text--lighten-2">
@@ -29,7 +29,7 @@
                 </v-card-text>
               </v-card>
             </v-flex>
-            <v-flex xs12 md4>
+            <v-flex xs12 sm6 md3>
               <v-card flat class="transparent">
                 <v-card-text class="text-center">
                   <v-icon x-large class="blue--text text--lighten-2">
@@ -46,7 +46,7 @@
                 </v-card-text>
               </v-card>
             </v-flex>
-            <v-flex xs12 md4>
+            <v-flex xs12 sm6 md3>
               <v-card flat class="transparent">
                 <v-card-text class="text-center">
                   <v-icon x-large class="blue--text text--lighten-2">
@@ -60,6 +60,23 @@
                 </v-card-title>
                 <v-card-text>
                   選擇包車旅遊，你不用像參加旅遊團那樣東奔西走、顧此失彼、疲憊不堪。也不用拎著行李大包小包的四處搭車、隨時要注意交通時刻，深怕錯過班次。輕鬆包車暢遊台灣。
+                </v-card-text>
+              </v-card>
+            </v-flex>
+            <v-flex xs12 sm6 md3>
+              <v-card flat class="transparent">
+                <v-card-text class="text-center">
+                  <v-icon x-large class="blue--text text--lighten-2">
+                    mdi-hotel
+                  </v-icon>
+                </v-card-text>
+                <v-card-title primary-title class="layout justify-center">
+                  <div class="headline text-center">
+                    {{ $t('旅館預訂') }}
+                  </div>
+                </v-card-title>
+                <v-card-text>
+                  根據您的行程計畫，為您提前預訂好飯店住宿，讓您無須擔心旅行過程中的住宿問題。
                 </v-card-text>
               </v-card>
             </v-flex>

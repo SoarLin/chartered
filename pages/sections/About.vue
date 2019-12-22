@@ -8,16 +8,7 @@
               <div class="h4 mt-0 title">
                 {{ $t('關於司機') }}
               </div>
-              <p>
-                Hello! I am Anthony Barnett. Web Developer, Graphic Designer and
-                Photographer.
-              </p>
-              <p>
-                Creative CV is a HTML resume template for professionals. Built
-                with Bootstrap 4, Now UI Kit and FontAwesome, this modern and
-                responsive design template is perfect to showcase your
-                portfolio, skills and experience.
-              </p>
+              <p v-html="driver.about" />
             </div>
           </v-col>
           <v-col cols="12" md="6">
@@ -74,6 +65,8 @@
 </template>
 
 <script>
+// import utils from '@/utils'
+
 export default {
   props: {
     driver: {
@@ -81,6 +74,7 @@ export default {
       default: () => {
         return {
           car: 'March',
+          about: '',
           insurance: '好險好險',
           language: ['中文'],
           location: '台北',

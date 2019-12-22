@@ -1,4 +1,4 @@
 <script>
-import _name from '~/pages/_name.vue'
-export default _name
+import _bin from '~/pages/bin/index.vue'
+export default _bin
 </script>

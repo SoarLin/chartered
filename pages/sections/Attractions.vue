@@ -39,6 +39,8 @@
 </template>
 
 <script>
+import utils from '@/utils'
+
 export default {
   props: {
     regions: {
@@ -82,11 +84,7 @@ export default {
       console.log(this.currentTag)
     },
     combineImgPath (name) {
-      let baseRouter = '/chartered/'
-      if (process.client) {
-        baseRouter = (window.location.hostname.includes('localhost')) ? '/' : '/chartered/'
-      }
-      return `${baseRouter}attractions/${name}`
+      return `${utils.baseRouter()}attractions/${name}`
     }
   }
 }

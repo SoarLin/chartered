@@ -50,18 +50,26 @@
   font-weight: 800;
   font-size: 2.5em;
   margin: 15px auto;
+  text-shadow: 0 3px 6px rgba(0,0,0, .6);
 }
 
-.subheading {
-  margin-top: -20px
+.profile-subheading {
+  margin-top: -20px;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.8);
 }
 
 .contact-group {
   margin-top: 15px;
-  display: flex;
-  width: 320px;
-  justify-content: space-around;
+  @include flex(space-around, center);
+  flex-wrap: wrap;
+  width: 480px;
 
+  @include xs {
+    width: 100%;
+  }
+
+
+  .btn-wechat,
   .btn-line,
   .btn-phone {
     padding-left: 10px;
@@ -72,6 +80,11 @@
     .v-btn__content {
       color: white;
     }
+
+    @include xs {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
   }
 
   .btn-line img {
@@ -79,7 +92,18 @@
     height: 34px;
   }
 
+  .btn-wechat {
+    background-color: #50BE31 !important;
+  }
+
   .btn-line {
     background-color: #09B900 !important;
   }
+}
+
+.line-dialog {
+  height: 100%;
+  @include flex(center, center);
+  flex-direction: column;
+  padding: 15px;
 }

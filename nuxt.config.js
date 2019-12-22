@@ -58,6 +58,7 @@ module.exports = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    '@nuxtjs/device',
     'nuxt-i18n'
   ],
   /*

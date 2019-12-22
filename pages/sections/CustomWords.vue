@@ -32,6 +32,8 @@
 </template>
 
 <script>
+import utils from '@/utils'
+
 export default {
   data () {
     return {
@@ -52,12 +54,7 @@ export default {
       return idx % 2 === 0 ? 'custom-card--reverse' : ''
     },
     getHead (imgPath) {
-      let baseRouter = '/chartered/'
-      if (process.client) {
-        baseRouter = (window.location.hostname.includes('localhost')) ? '/' : '/chartered/'
-        console.log('custom image:', `${baseRouter}${imgPath}`)
-      }
-      return `${baseRouter}${imgPath}`
+      return `${utils.baseRouter()}${imgPath}`
     }
   }
 }
