@@ -12,7 +12,7 @@
       <v-flex xs12>
         <v-container grid-list-xl>
           <v-layout row wrap align-center>
-            <v-flex xs12 sm6 md3>
+            <v-flex v-if="services.includes('機場接送')" class="xs12" :class="rwdClass">
               <v-card flat class="transparent">
                 <v-card-text class="text-center">
                   <v-icon x-large class="blue--text text--lighten-2">
@@ -29,7 +29,7 @@
                 </v-card-text>
               </v-card>
             </v-flex>
-            <v-flex xs12 sm6 md3>
+            <v-flex v-if="services.includes('行程規劃')" class="xs12" :class="rwdClass">
               <v-card flat class="transparent">
                 <v-card-text class="text-center">
                   <v-icon x-large class="blue--text text--lighten-2">
@@ -46,7 +46,7 @@
                 </v-card-text>
               </v-card>
             </v-flex>
-            <v-flex xs12 sm6 md3>
+            <v-flex v-if="services.includes('包車旅遊')" class="xs12" :class="rwdClass">
               <v-card flat class="transparent">
                 <v-card-text class="text-center">
                   <v-icon x-large class="blue--text text--lighten-2">
@@ -63,7 +63,7 @@
                 </v-card-text>
               </v-card>
             </v-flex>
-            <v-flex xs12 sm6 md3>
+            <v-flex v-if="services.includes('旅館預訂')" class="xs12" :class="rwdClass">
               <v-card flat class="transparent">
                 <v-card-text class="text-center">
                   <v-icon x-large class="blue--text text--lighten-2">
@@ -88,7 +88,28 @@
 </template>
 
 <script>
-export default {}
+export default {
+  props: {
+    services: {
+      type: Array,
+      default: () => {
+        return ['機場接送', '行程規劃', '包車旅遊']
+      }
+    }
+  },
+  data () {
+    return {}
+  },
+  computed: {
+    rwdClass () {
+      return this.services.length === 4 ? 'sm6 md3' : 'md4'
+    }
+  },
+  mounted () {
+  },
+  methods: {
+  }
+}
 </script>
 
 <style lang="scss" scoped></style>

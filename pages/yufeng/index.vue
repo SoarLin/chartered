@@ -6,7 +6,7 @@
 
       <about-me :driver="driver" />
 
-      <services />
+      <services :services="services" />
 
       <attractions
         :regions="regions"
@@ -57,7 +57,8 @@ export default {
   },
   data () {
     return {
-      name: ''
+      name: '',
+      services: ['機場接送', '行程規劃', '包車旅遊']
     }
   },
   computed: {

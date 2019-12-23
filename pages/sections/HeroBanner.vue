@@ -114,6 +114,7 @@ export default {
   },
   methods: {
     getImage (imgPath) {
+      // console.log('getImage = ' + utils.baseRouter() + imgPath)
       return `${utils.baseRouter()}${imgPath}`
     },
     addWeChat () {
