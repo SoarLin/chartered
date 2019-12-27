@@ -1,25 +1,35 @@
 <template>
   <section>
     <v-container fluid>
-      <h3 class="display-1 text-center">
+      <h3 class="display-1 text-center mb-4">
         推薦行程
       </h3>
-      <v-row justify="space-around">
-        <v-col v-for="(trip, idx) in trips" :key="idx" cols="12" md="6">
-          <h4 class="title text-center">
-            {{ trip.name }}
-          </h4>
-          <v-timeline>
-            <v-timeline-item
-              v-for="(value, tIdx) in trip.timeline"
-              :key="tIdx"
-              :class="isTimeRight(tIdx)"
-            >
-              {{ value }}
-            </v-timeline-item>
-          </v-timeline>
-        </v-col>
-      </v-row>
+      <div v-swiper:mySwiper="swiperOption">
+        <div class="swiper-wrapper" justify="space-around">
+          <div v-for="(trip, idx) in trips"
+            :key="idx"
+            class="swiper-slide timeline-slide"
+          >
+            <h4 class="title text-center">
+              {{ trip.name }}
+            </h4>
+            <v-timeline>
+              <v-timeline-item
+                v-for="(value, tIdx) in trip.timeline"
+                :key="tIdx"
+                :class="isTimeRight(tIdx)"
+              >
+                <v-card class="elevation-3">
+                  <v-card-title class="title">
+                    {{ value }}
+                  </v-card-title>
+                </v-card>
+              </v-timeline-item>
+            </v-timeline>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
     </v-container>
   </section>
 </template>
@@ -35,7 +45,26 @@ export default {
     }
   },
   data () {
-    return {}
+    return {
+      swiperOption: {
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: 'auto',
+        speed: 3000,
+        spaceBetween: 80,
+        breakpoints: {
+          480: {
+            spaceBetween: 20
+          },
+          720: {
+            spaceBetween: 50
+          }
+        },
+        pagination: {
+          el: '.swiper-pagination'
+        }
+      }
+    }
   },
   methods: {
     isTimeRight (idx) {

@@ -58,6 +58,7 @@ export default {
         { text: 'ALL', value: 'All' },
         { text: '台北', value: 'Taipei' },
         { text: '台中', value: 'Taichung' },
+        { text: '南投', value: 'Nantou' },
         { text: '嘉義', value: 'Chiayi' },
         { text: '台南', value: 'Tainan' },
         { text: '高雄', value: 'Kaohsiung' },

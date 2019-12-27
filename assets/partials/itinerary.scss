@@ -1,0 +1,32 @@
+.timeline-slide {
+    width: 370px;
+    @include xs {
+        width: 100%;
+    }
+
+    h4.title {
+        margin-bottom: 25px;
+    }
+
+    .v-timeline {
+        margin-bottom: 40px;
+
+        .v-timeline-item {
+            align-items: center;
+
+            .v-timeline-item__body {
+            max-width: calc(50% - 38px) !important;
+            }
+        }
+    }
+
+    .v-timeline-item__divider {
+        min-width: 76px;
+    }
+
+    .v-card__title.title {
+        font-size: 1.2rem !important;
+        font-weight: 400;
+        padding: 10px 15px;
+    }
+}
