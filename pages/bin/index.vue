@@ -9,8 +9,7 @@
       <services :services="services" />
 
       <attractions
-        :regions="regions"
-        :attractions="attractions"
+        :regions="regions" :attractions="attractions"
       />
 
       <itinerary :trips="trips" />

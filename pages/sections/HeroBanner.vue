@@ -2,7 +2,7 @@
   <section>
     <v-parallax src="plane.jpg" height="500">
       <v-layout column align-center justify-center class="white--text">
-        <div class="profile-image">
+        <div id="driveImage" class="profile-image">
           <img :src="getImage(driver.headImg)" class="hero-head" alt="大頭照" />
         </div>
         <h1 class="white--text profile-name">
@@ -58,6 +58,20 @@
             </template>
             <span>Add My LINE</span>
           </v-tooltip>
+          <!-- Whatsapp button -->
+          <v-tooltip v-if="hasWhatsApp" top>
+            <template v-slot:activator="{ on }">
+              <v-btn class="btn-whatsapp" large
+                @click="addWhatsApp"
+              >
+                <v-icon class="white--text">
+                  mdi-whatsapp
+                </v-icon>
+                WhatsApp
+              </v-btn>
+            </template>
+            <span>Add My WhatsApp</span>
+          </v-tooltip>
           <!-- 打電話 button -->
           <v-tooltip top>
             <template v-slot:activator="{ on }">
@@ -109,7 +123,14 @@ export default {
       return true
     },
     hasLine () {
-      return this.driver.line !== ''
+      return this.driver.line && this.driver.line !== ''
+    },
+    hasWhatsApp () {
+      return true
+      // if (this.dirver.whatsapp) {
+      //   return this.dirver.whatsapp !== ''
+      // }
+      // return false
     }
   },
   methods: {
@@ -122,6 +143,11 @@ export default {
         this.dialogWechat = true
       } else if (this.driver.wechat) {
         window.open(this.driver.wechat)
+      }
+    },
+    addWhatsApp () {
+      if (this.driver.whatsapp) {
+        window.open(this.driver.whatsapp)
       }
     },
     addLine () {

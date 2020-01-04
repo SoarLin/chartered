@@ -7,7 +7,7 @@
         </div>
         <em>多天行程包車旅遊，跨縣市包車旅行</em>
         <v-btn class="mt-12" color="blue lighten-2" dark large
-          :href="driverPhone"
+          @click="backToHero"
         >
           與我聯繫
         </v-btn>
@@ -17,6 +17,8 @@
 </template>
 
 <script>
+import utils from '@/utils'
+
 export default {
   props: {
     driver: {
@@ -32,8 +34,10 @@ export default {
     return {}
   },
   computed: {
-    driverPhone () {
-      return `tel:${this.driver.phone}`
+  },
+  methods: {
+    backToHero () {
+      utils.scrollToTop(200)
     }
   }
 }

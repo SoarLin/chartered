@@ -1,6 +1,6 @@
 <template>
   <v-app-bar app>
-    <v-toolbar-title v-text="title" />
+    <v-toolbar-title class="web-title" v-text="title" />
     <v-spacer />
     <v-menu left bottom>
       <template v-slot:activator="{ on }">
@@ -25,7 +25,7 @@
 export default {
   data () {
     return {
-      title: 'MyLogo'
+      title: 'PS'
     }
   },
   methods: {
@@ -36,4 +36,12 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@import url('https://fonts.googleapis.com/css?family=Damion&display=swap');
+
+.web-title {
+  font-family: 'Damion', cursive;
+  font-size: 2em;
+  width: 50px;
+}
+</style>

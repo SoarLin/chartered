@@ -34,6 +34,22 @@
               </v-row>
               <v-row>
                 <v-col cols="12" sm="4">
+                  <strong class="text-uppercase"> {{ $t('車色') }} : </strong>
+                </v-col>
+                <v-col cols="12" sm="8">
+                  {{ driver.carColor }}
+                </v-col>
+              </v-row>
+              <v-row>
+                <v-col cols="12" sm="4">
+                  <strong class="text-uppercase"> {{ $t('車號') }} : </strong>
+                </v-col>
+                <v-col cols="12" sm="8">
+                  {{ driver.carNumber }}
+                </v-col>
+              </v-row>
+              <v-row>
+                <v-col cols="12" sm="4">
                   <strong class="text-uppercase"> {{ $t('乘客數') }} : </strong>
                 </v-col>
                 <v-col cols="12" sm="8">
