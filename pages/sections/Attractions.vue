@@ -26,6 +26,7 @@
           <v-card class="attraction-card">
             <v-img class="white--text align-end"
               :src="combineImgPath(data.img)"
+              :lazy-src="generateThumb(data.img)"
             >
               <v-card-title class="attraction-card__title">
                 {{ data.name }}
@@ -86,6 +87,9 @@ export default {
     },
     combineImgPath (name) {
       return `${utils.baseRouter()}attractions/${name}`
+    },
+    generateThumb (name) {
+      return `${utils.baseRouter()}attractions/thumbs/${name}`
     }
   }
 }
