@@ -8,19 +8,25 @@
             v-for="(n, idx) in 7"
             :key="idx"
             :elevation="10"
-            max-width="320"
-            height="100%"
-            class="swiper-slide mt-4 custom-card__wrapper"
+            class="custom-card mt-4 swiper-slide"
           >
-            <v-img max-width="320" class=""
-              :src="combineImgPath(n)"
-            />
-          </v-card>
-          <!-- <div class="custom-card" :class="customeCardClass(n)">
             <div class="custom__head-block">
               <img :src="getHead('head.jpg')" alt />
-              <h6 class="title">John Doe</h6>
-              <p class="subtitle">香港</p>
+              <div>
+                <h6 class="title">John Doe</h6>
+                <p class="subtitle">香港</p>
+              </div>
+            </div>
+            <div class="mt-2">
+              <v-chip
+                v-for="(n, idx) in 10"
+                :key="idx"
+                small outlined
+                class="mr-1 mb-1"
+              >
+                Icon
+                <v-icon right color="#90CAF9">mdi-thumb-up</v-icon>
+              </v-chip>
             </div>
             <p class="custom-word">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente
@@ -28,7 +34,19 @@
               est doloribus, dolorem hic cum culpa! Voluptas voluptatum hic
               dolore?
             </p>
-          </div> -->
+          </v-card>
+          <!-- <v-card
+            v-for="(n, idx) in 7"
+            :key="idx"
+            :elevation="10"
+            max-width="320"
+            height="100%"
+            class="swiper-slide mt-4 custom-card__wrapper"
+          >
+            <v-img max-width="320" class=""
+              :src="combineImgPath(n)"
+            />
+          </v-card> -->
         </div>
         <div class="swiper-pagination"></div>
       </div>
@@ -57,9 +75,6 @@ export default {
   computed: {
   },
   methods: {
-    customeCardClass (idx) {
-      return idx % 2 === 0 ? 'custom-card--reverse' : ''
-    },
     getHead (imgPath) {
       return `${utils.baseRouter()}${imgPath}`
     },
