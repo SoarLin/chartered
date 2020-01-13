@@ -46,15 +46,15 @@
     }
   }
 
+  .custom-package {
+    font-size: .8em;
+    color: #9A9A9A;
+    margin: 10px auto;
+    line-height: 1.25em;
+  }
+
   .custom-word {
-    margin-top: -20px;
-    margin-left: 30px;
     margin-bottom: 0;
     font-size: 1em;
-
-    @include sm {
-      margin-top: 0;
-      margin-left: 0;
-    }
   }
 }
