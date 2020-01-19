@@ -11,7 +11,7 @@
             class="custom-card mt-4 swiper-slide"
           >
             <div class="custom__head-block">
-              <img :src="getHead('head.jpg')" alt />
+              <img :src="getRandomHead(data.gender)" alt />
               <div>
                 <h6 class="title">{{ data.name }}</h6>
                 <v-rating
@@ -19,7 +19,8 @@
                   empty-icon="mdi-star-outline"
                   full-icon="mdi-star-face"
                   half-icon="mdi-star-half"
-                  dense="true"
+                  :readonly="true"
+                  :dense="true"
                 />
               </div>
             </div>
@@ -71,7 +72,17 @@ export default {
     return {
       customers: [
         {
+          name: 'S**r',
+          gender: 'male',
+          rating: 5,
+          tags: ['車內整潔', '駕駛平穩', '態度好服務佳'],
+          feedback: `司機大哥人很健談、很好相處，兩天的行程相處下來後變得熟稔，也能陪著四處走行程，一天下來司機大哥除了開車外，還多走了一萬多步，真是辛苦了😂<br>
+          行程空檔之餘，也能額外提供一些景點的建議。推薦在台旅遊包車，能找彬少司機大哥。`,
+          image: 'img02.jpg'
+        },
+        {
           name: '***',
+          gender: '',
           rating: 5,
           tags: ['车内整洁', '驾驶平稳', '提前等候', '态度好服务佳', '活地图认路准', '车况车貌好'],
           feedback: '在国外包车过很多次，第一次这么满意，感谢彬少师傅今天的细心关照，不仅景点还有文化等介绍的非常细，推荐的美食我们家人都非常喜欢，强烈推荐彬少师傅。',
@@ -79,6 +90,7 @@ export default {
         },
         {
           name: '***',
+          gender: '',
           rating: 4,
           tags: ['车内整洁'],
           feedback: '自定义了小众人文历史游览线路，景点虽不算远但地势偏僻，所以决定包车。当天下大雨，包车方便很多，回程时候想买释迦，司机带我们去的水果店又好又便宜，不仅有释迦，芒果和菠萝也特别甜，很开心。另外有个建议：除了等租车公司和司机家微信，是否有更有效的联系方式？因为主动拨打订单确认信息里的电话无人接听。',
@@ -86,6 +98,7 @@ export default {
         },
         {
           name: 'c**5',
+          gender: 'female',
           rating: 5,
           tags: [],
           feedback: '驾驶技术非常娴熟 给我们介绍台湾的特色及特产 下次来台湾 还会找他',
@@ -93,6 +106,7 @@ export default {
         },
         {
           name: '高**瑄',
+          gender: 'female',
           rating: 5,
           tags: [],
           feedback: '司机师傅很热情 行程非常棒',
@@ -100,6 +114,7 @@ export default {
         },
         {
           name: 'm**y',
+          gender: 'male',
           rating: 5,
           tags: [],
           feedback: '非常愉快的台湾环岛游! 感谢彬少5天的陪伴和介绍! 非常靠谱的代理, 非常nice的司机! 五星好评',
@@ -107,6 +122,7 @@ export default {
         },
         {
           name: '滕***',
+          gender: 'male',
           rating: 5,
           tags: [],
           feedback: `黄绍彬师傅很随和，亲和！一路上大家相处得非常愉快，每天晚上都提前商量好了第二天的行程！有一天我只是随口说了还没有吃到台湾的芒果，他晚上自己出去吃饭的时候就帮我买了两盒送到酒店给我们，真的让人很感动！ <br>
@@ -118,6 +134,8 @@ export default {
       swiperOption: {
         grabCursor: true,
         centeredSlides: true,
+        slideToClickedSlide: true,
+        paginationClickable: true,
         slidesPerView: 'auto',
         speed: 3000,
         spaceBetween: 50,
@@ -132,6 +150,21 @@ export default {
   methods: {
     getHead (imgPath) {
       return `${utils.baseRouter()}${imgPath}`
+    },
+    getRandomHead (gender) {
+      let head
+      switch (gender) {
+        case 'male':
+          head = 'head1'
+          break
+        case 'female':
+          head = 'head2'
+          break
+        default:
+          head = 'head' + (Math.floor(Math.random() * 2) + 1)
+          break
+      }
+      return `${utils.baseRouter()}customer/${head}.jpg`
     },
     combineImgPath (n) {
       const number = ('00' + n).split(-2)

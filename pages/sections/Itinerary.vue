@@ -49,6 +49,8 @@ export default {
       swiperOption: {
         grabCursor: true,
         centeredSlides: true,
+        slideToClickedSlide: true,
+        paginationClickable: true,
         slidesPerView: 'auto',
         speed: 3000,
         spaceBetween: 80,
