@@ -8,7 +8,7 @@ module.exports = {
    ** Headers of the page
    */
   head: {
-    titleTemplate: '%s - ' + '包車旅遊',
+    titleTemplate: '%s - ' + '台灣包車旅遊',
     title: '台灣旅遊' || '',
     meta: [
       { charset: 'utf-8' },
@@ -101,6 +101,6 @@ module.exports = {
     /*
      ** You can extend webpack config here
      */
-    extend (config, ctx) {}
+    extend(config, ctx) {}
   }
 }

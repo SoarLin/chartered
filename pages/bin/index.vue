@@ -44,6 +44,11 @@ import Itinerary from '@/pages/sections/Itinerary'
 import Contact from '@/pages/sections/Contact'
 
 export default {
+  head () {
+    return {
+      title: '彬少司導'
+    }
+  },
   components: {
     MyHeader,
     HeroBanner,
