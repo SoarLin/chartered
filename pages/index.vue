@@ -1,4 +1,4 @@
 <script>
-import _bin from '~/pages/bin/index.vue'
-export default _bin
+import _pin from '~/pages/pin/index.vue'
+export default _pin
 </script>

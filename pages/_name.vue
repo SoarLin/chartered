@@ -84,7 +84,7 @@ export default {
   },
   async asyncData ({ app, store, params }) {
     try {
-      const name = params.name || 'bin'
+      const name = params.name || 'pin'
       console.log(name)
       await store.dispatch('getAllTrip')
       await store.dispatch('getDriver', name)
