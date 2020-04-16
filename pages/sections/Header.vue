@@ -37,10 +37,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import url('https://fonts.googleapis.com/css?family=Damion&display=swap');
-
 .web-title {
-  font-family: 'Damion', cursive;
+  font-family: 'Comic Sans MS', Courier;
   font-size: 2em;
   width: 50px;
 }
