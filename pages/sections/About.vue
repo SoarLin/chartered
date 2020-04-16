@@ -61,7 +61,7 @@
                   <strong class="text-uppercase"> {{ $t('保險') }} : </strong>
                 </v-col>
                 <v-col cols="12" sm="8">
-                  {{ driver.insurance }}
+                  {{ showInsurance }}
                 </v-col>
               </v-row>
               <v-row>
@@ -89,9 +89,9 @@ export default {
       type: Object,
       default: () => {
         return {
-          car: 'March',
-          about: '',
-          insurance: '好險好險',
+          car: 'NISSAN GRAND LIVINA (5+2)經濟七',
+          about: '台灣有逛不完的夜市，吃不完的小吃美食，跟著我們游台灣🇹🇼我們的貼心用心的服務是為了讓我們的貴賓，能夠真正的放鬆心情好好的旅遊，我們會持續著我們的熱情來服務各位好朋友<br>本公司提供台灣包車旅遊、機場接送服務、客制化行程計劃、酒店住宿預約',
+          insurance: '乘客意外險200萬、乘客意外醫療險20萬',
           language: ['中文'],
           location: '台北',
           passengers: '1 ~ 4 人'
@@ -103,6 +103,13 @@ export default {
     return {}
   },
   computed: {
+    showInsurance () {
+      if (this.driver.insurance) {
+        return this.driver.insurance
+      } else {
+        return '乘客意外險200萬、乘客意外醫療險20萬'
+      }
+    }
   },
   methods: {
     driverCanSpeak (langs) {
