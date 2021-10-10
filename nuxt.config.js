@@ -39,6 +39,7 @@ module.exports = {
    */
   plugins: [
     { src: '~/plugins/swiper.js', ssr: false },
+    '~/plugins/vuetify.js',
     '~/plugins/firebase.js',
     '~/plugins/i18n.js'
   ],
@@ -90,6 +91,7 @@ module.exports = {
   },
   vuetify: {
     customVariables: ['~/assets/customVutify.scss'],
+    iconfont: 'mdi',
     theme: {
       themes: {}
     }
@@ -101,6 +103,6 @@ module.exports = {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    extend (config, ctx) {}
   }
 }

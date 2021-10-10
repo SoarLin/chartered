@@ -23,7 +23,7 @@ export const actions = {
     const collection = await fireDb.collection('trip').get()
     commit('CLEAN_RECOMMEND_TRIP')
     collection.forEach((trip) => {
-      console.log(trip.data())
+      // console.log(trip.data())
       commit('SET_RECOMMEND_TRIP', trip.data())
     })
   },

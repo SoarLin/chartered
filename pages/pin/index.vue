@@ -48,7 +48,10 @@ export default {
     return {
       title: '彬少司導',
       script: [
-        { src: 'https://platform-api.sharethis.com/js/sharethis.js#property=5e23f68035deb100123e4553&product=sticky-share-buttons' }
+        {
+          src: 'https://platform-api.sharethis.com/js/sharethis.js#property=5e23f68035deb100123e4553&product=sticky-share-buttons',
+          async: true
+        }
       ]
     }
   },

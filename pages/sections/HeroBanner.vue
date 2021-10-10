@@ -105,7 +105,7 @@ export default {
           headImg: '',
           line: '',
           lineImg: '',
-          phone: '+886-936-221-047',
+          phone: '+886-909-719-419',
           wechat: '',
           wechatImg: ''
         }
