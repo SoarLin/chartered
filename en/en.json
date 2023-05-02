@@ -1,0 +1,21 @@
+{
+    "Header": "header 1",
+    "關於司機": "About Me",
+    "基本資料": "Information",
+    "所在地": "Location",
+    "台北": "Taipei",
+    "台中": "Taichung",
+    "車款": "Car",
+    "車號": "Car Number",
+    "車色": "Car Color",
+    "乘客數": "Passengers",
+    "保險": "Insurance",
+    "語言": "Language",
+    "中文": "Mandarin",
+    "英文": "English",
+    "提供服務": "Provide Services",
+    "機場接送": "Airport Transfer",
+    "行程規劃": "Travel Plan",
+    "包車旅遊": "Cartered Car For Travel",
+    "旅館預訂": "Hotel Reservation"
+}
